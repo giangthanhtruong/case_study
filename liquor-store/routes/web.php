@@ -20,3 +20,11 @@ Route::get('/product',[\App\Http\Controllers\ProductController::class,"list"])->
 Route::get('/admin',function (){return view('backend.core.master');})->name('admin');
 Route::get('/admin/create',function (){return view('backend.products.create');})->name('admin');
 Route::get('/admin/home_admin',function (){return view('backend.core.home_admin');})->name('home_admin');
+Route::prefix('users')->group(function (){
+    Route::get('/', [\App\Http\Controllers\UserController::class,'index'])->name('users.list');
+    Route::get('/create',[\App\Http\Controllers\UserController::class,'create'])->name('users.create');
+    Route::post('/create',[\App\Http\Controllers\UserController::class,'store'])->name('users.store');
+    Route::get('/{id}/update',[\App\Http\Controllers\UserController::class,'edit'])->name('users.edit');
+    Route::post('/{id}/update',[\App\Http\Controllers\UserController::class,'update'])->name('users.update');
+
+});
