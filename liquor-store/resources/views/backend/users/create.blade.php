@@ -23,7 +23,7 @@
 
             </div>
             <div class="form-group">
-                <label for="">Tuổi</label>
+                <label for="">Ngày Sinh</label>
                 <input type="date" name="age"  class="form-control">
 
                 <p class="text-danger">{{$errors->first('age')}}</p>

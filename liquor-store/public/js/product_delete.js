@@ -26,7 +26,7 @@ $(document).ready(function () {
             }
         });
         $.ajax({
-            url: origin + '/products/delete',
+            url: origin + '/admin/products/delete',
             method: 'POST',
             data: {
                 deleteId: deleteId

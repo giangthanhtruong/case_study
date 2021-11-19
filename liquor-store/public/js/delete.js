@@ -25,7 +25,7 @@ $(document).ready(function () {
             }
         });
         $.ajax({
-            url: origin + '/users/delete',
+            url: origin + '/admin/users/delete',
             method: 'POST',
             data: {
                 deleteId: deleteId

@@ -1,5 +1,8 @@
 @extends('backend.core.master')
 @section('content')
+    <div>
+        <h1 style="text-align: center" class="text-primary pt-5"><strong>QUẢN LÝ NGƯỜI DÙNG</strong></h1>
+    </div>
     <div class="col-12 mt-2">
         <a class="btn btn-success" href="{{ route('users.create') }}">Thêm mới người dùng</a>
         <button class="btn btn-danger delete-user" id="user-delete" onclick="return confirm('Bạn có chắc muốn xóa không ?')" >Delete</button>
@@ -13,10 +16,10 @@
                     <th>STT</th>
                     <th>Tên khách hàng</th>
                     <th>Mật khẩu</th>
-                    <th>Tuổi</th>
+                    <th>Ngày sinh</th>
                     <th>Email</th>
                     <th>Địa chỉ</th>
-                    <th>Ảnh</th>
+                    <th>Ảnh đại diện</th>
                     <th>Số điện thoại</th>
                 </tr>
                 @forelse($users as $key => $user)

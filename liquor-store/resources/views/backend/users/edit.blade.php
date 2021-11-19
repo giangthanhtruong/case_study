@@ -14,7 +14,7 @@
                     @enderror
                 </div>
                     <div class="form-group">
-                        <label for="">Tuổi</label>
+                        <label for="">Ngày sinh</label>
                         <input type="date" name="age" value="{{ $user->age }}" class="form-control">
                         @error('age')
                         <p class="text-danger">{{ $message }}</p>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Số Điện thoại</label>
-                        <input type="number" name="phone" value="{{ $user->phone }}" class="form-control">
+                        <input type="text" name="phone" value="{{ $user->phone }}" class="form-control">
                         @error('phone')
                         <p class="text-danger">{{ $message }}</p>
                         @enderror

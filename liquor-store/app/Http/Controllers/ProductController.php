@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductModel;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = ProductModel::all();
+        $products = Product::all();
         return view('backend.products.list', compact('products'));
     }
 
@@ -38,7 +38,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new ProductModel();
+        $product = new Product();
         $product->name = $request->name;
         $product->company = $request->company;
         $product->product_year = $request->product_year;
@@ -72,7 +72,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = ProductModel::findOrFail($id);
+        $product = Product::findOrFail($id);
         return view('backend.products.edit', compact('product'));
     }
 
@@ -85,7 +85,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = ProductModel::findOrFail($id);
+        $product = Product::findOrFail($id);
         $product->name = $request->name;
         $product->company = $request->company;
         $product->product_year = $request->product_year;
@@ -112,7 +112,7 @@ class ProductController extends Controller
 
         try {
             $productId = $request->deleteId;
-            ProductModel::destroy($productId);
+            Product::destroy($productId);
             $data = [
                 'status' => 'success',
                 'message' => 'Xoá thành công!'
@@ -125,4 +125,12 @@ class ProductController extends Controller
         }
         return response()->json($data);
     }
+
+    public function showProducts()
+    {
+        $products = Product::paginate(12);
+        return view('frontend.product',compact('products'));
+    }
+
+
 }
