@@ -17,7 +17,8 @@
 </head>
 <body id="login-body">
 <div id="logreg-forms">
-    <form class="form-login">
+    <form class="form-login" method="post" action="{{route('user.login')}}">
+        @csrf
         <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"><strong> Login</strong></h1>
         <div class="social-login">
             <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Login with Facebook</span>
@@ -30,18 +31,23 @@
             <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" name="" class="form-control input_user" value="" placeholder="User Email">
+            <input type="text" name="email" class="form-control input_user" value="" placeholder="User Email">
         </div>
+        @error('email')
+        <p class="text-danger">{{ $message }}</p>
+        @enderror
         <div class="input-group mb-2">
             <div class="input-group-append" id="icon-eye">
                 <span class="input-group-text"><i class="fas fa-eye-slash"></i></span>
             </div>
-            <input type="password" name="" class="form-control input_pass" value="" placeholder="password"
-                   id="inputPassword">
+            <input type="password" name="password" class="form-control input_pass" value="" placeholder="password" id="inputPassword">
         </div>
+        @error('password')
+        <p class="text-danger">{{ $message }}</p>
+        @enderror
         <br>
         <button class="btn btn-success btn-block" type="submit"><i class=""></i> Login</button>
-        <a href="#" id="forgot_pswd">Forgot password?</a>
+        <a href="" id="forgot_pswd">Forgot password?</a>
         <hr>
         <!-- <p>Don't have an account!</p>  -->
         <a href="{{route('register')}}" class="btn btn-primary btn-block" type="button" id="btn-signup" href="{{route('register')}}"><i class="fas fa-user-plus"></i> New

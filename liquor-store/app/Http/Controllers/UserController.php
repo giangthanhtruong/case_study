@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AuthRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -25,11 +27,11 @@ class UserController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(AuthRequest $request)
     {
         $user = new User();
         $user->name = $request->name;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->age = $request->age;
         $user->email = $request->email;
         $user->address = $request->address;

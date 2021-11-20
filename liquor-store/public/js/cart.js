@@ -25,7 +25,7 @@ $(document).ready(function (){
         let path = origin + "/storage/";
         let str = "";
         for (let id in carts) {
-            if(id <= 3){
+            if(id <= 5){
                 console.log(carts[id])
                 let html = `<div class="dropdown-item d-flex align-items-start" href="#">
                     <div class="img" style="background-image: url(${path+carts[id].image});"></div>

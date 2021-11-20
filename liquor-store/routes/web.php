@@ -43,15 +43,18 @@ Route::prefix('/admin')->group(function (){
 });
 
 
-;
-Route::get('/login',[LoginController::class,'login'])->name('login');
-Route::get('/register', [RegisterController::class,'register'])->name('register');
+
+Route::get('/login',[\App\Http\Controllers\AuthController::class,'formLogin'])->name('login');
+Route::post('login',[\App\Http\Controllers\AuthController::class,'login'])->name('user.login');
+Route::get('logout',[\App\Http\Controllers\AuthController::class,'logout'])->name('user.logout');
+Route::get('/register', [\App\Http\Controllers\AuthController::class,'register'])->name('register');
 
 Route::prefix('/home')->group(function (){
-    Route::get('/',[HomeController::class,'homePage'])->name('frontend.content')->name('home');
+    Route::get('/',[HomeController::class,'homePage'])->name('home');
     Route::get('/products',[ProductController::class,'showProducts'])->name('show.products');
     Route::prefix('/cart')->group(function (){
         Route::get('/addToCart/{id}',[CartController::class,'addToCart'])->name('addToCart');
     });
     Route::get('/deleteAll',[HomeController::class,'deleteAll'])->name('home.deleteAll');
+    Route::get('/order',[\App\Http\Controllers\OrderController::class,'showOrder'])->name('user.order');
 });
