@@ -15,7 +15,6 @@
                     <th><input type="checkbox" id="user-checkbox"></th>
                     <th>STT</th>
                     <th>Tên khách hàng</th>
-                    <th>Mật khẩu</th>
                     <th>Ngày sinh</th>
                     <th>Email</th>
                     <th>Địa chỉ</th>
@@ -27,7 +26,6 @@
                         <td><input type="checkbox" class="user-checked" value="{{$user->id}} "></td>
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->password }}</td>
                         <td>{{ $user->age }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->address }}</td>

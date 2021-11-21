@@ -3,24 +3,32 @@
         <div class="row">
             <div class="col-md-6 d-flex align-items-center">
                 <p class="mb-0 phone pl-md-2">
-                    <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> 0899 480 222</a>
+                    <a href="#" class="nav-item active mr-2"><span class="fa fa-phone mr-1"></span> 0899 480 222</a>
                     <a href="#"><span class="fa fa-paper-plane mr-1"></span> giangthanhtruong88@email.com</a>
                 </p>
             </div>
+            <div class="col-md-6 d-flex justify-content-md-end">
+                <div class="social-media mr-4">
+{{--                    <p class="mb-0 d-flex">--}}
+{{--                        </p>--}}
+                </div>
                 <div class="reg">
                     <p class="mb-0">
                         @if (!\Illuminate\Support\Facades\Auth::user())
                             <a href="{{route('register')}}" class="mr-2">Register</a>
-                            <a href="{{route('login')}}">Log In</a>
+                            <a href="{{route('login')}}" >Log In</a>
                         @else
+                            <span style="color: white" class="mr-2"> Hello {{\Illuminate\Support\Facades\Auth::user()->name}} </span>
                             <a href="{{route('user.logout')}}">Log out</a>
-                        @endif
-                    </p>
+                    @endif
                 </div>
             </div>
+
         </div>
     </div>
-
+</div>
+@php($products = session('cart') ?? $products=[])
+@php($counts = session('count')?? $counts=[])
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="{{route('home')}}">Liquor <span>store</span></a>
@@ -33,26 +41,24 @@
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                @php($products = session('cart') ?? $products=[])
-                @php($counts = session('count')?? $counts=[])
-                @foreach($products as $key=>$product)
+                @foreach($products as $key => $product)
+
                     <div class="dropdown-item d-flex align-items-start" href="#">
                         <div class="img" style="background-image: url({{asset('storage/'. $product->image)}});">
 
                         </div>
                         <div class="text pl-3">
                             <h4>{{$product->name}}</h4>
-                            <p class="mb-0"><a href="#" class="price">{{asset($product->price)}}</a><span
-                                    class="quantity ml-3">{{$product->counts}}</span></p>
+                            <p class="mb-0"><a href="#" class="price">{{asset($product->price)}}</a>
+                                <span class="quantity ml-3">{{$product->counts}}</span></p>
                         </div>
 
                     </div>
                 @endforeach
-
-                    <a class="dropdown-item text-center btn-link d-block w-100" href="{{route('user.order')}}">
-                        View All
-                        <span class="ion-ios-arrow-round-forward"></span>
-                    </a>
+                <a class="dropdown-item text-center btn-link d-block w-100" href="{{route('user.order')}}">
+                    View All
+                    <span class="ion-ios-arrow-round-forward"></span>
+                </a>
             </div>
         </div>
 
@@ -64,7 +70,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="{{route('home')}}" class="nav-link">Home</a></li>
-                <li class="nav-item active"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item active"><a href="" class="nav-link">About</a></li>
                 <li class="nav-item active"><a href="{{route('show.products')}}" class="nav-link">Products
                     </a></li>
                 <li class="nav-item active"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>

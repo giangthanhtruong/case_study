@@ -26,13 +26,13 @@ class OrderController extends Controller
 
     public function store(AuthRequest $request)
     {
-        $product = new OrderModel();
-        $product->userName = $request->userName;
-        $product->phone = $request->phone;
-        $product->product = $request->product;
-        $product->quantity = $request->quantity;
-        $product->totalPrice = $request->totalPrice;
-        $product->save();
+        $order = new OrderModel();
+        $order->userName = $request->userName;
+        $order->phone = $request->phone;
+        $order->product = $request->product;
+        $order->quantity = $request->quantity;
+        $order->totalPrice = $request->totalPrice;
+        $order->save();
         return redirect()->route('orders.list');
     }
 

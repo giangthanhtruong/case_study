@@ -27,7 +27,7 @@ class UserController extends Controller
 
 
 
-    public function store(AuthRequest $request)
+    public function store(Request $request)
     {
         $user = new User();
         $user->name = $request->name;

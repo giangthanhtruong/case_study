@@ -51,7 +51,8 @@ Route::prefix('/admin')->group(function (){
 Route::get('/login',[\App\Http\Controllers\AuthController::class,'formLogin'])->name('login');
 Route::post('login',[\App\Http\Controllers\AuthController::class,'login'])->name('user.login');
 Route::get('logout',[\App\Http\Controllers\AuthController::class,'logout'])->name('user.logout');
-Route::get('/register', [\App\Http\Controllers\AuthController::class,'register'])->name('register');
+Route::get('register',[\App\Http\Controllers\AuthController::class,'formRegister'])->name('register');
+Route::post('/register', [\App\Http\Controllers\AuthController::class,'register']);
 Route::get('/',[HomeController::class,'homePage'])->name('home');
 
 Route::prefix('/home')->group(function (){
@@ -70,5 +71,5 @@ Route::prefix('/home')->group(function (){
 
 
     Route::get('/blog-single',[\App\Http\Controllers\BlogController::class,'blog'])->name('blog');
-    Route::get('/product-single',[\App\Http\Controllers\ProductSingleController::class,'productSingle'])->name('product-single');
+    Route::get('{id}/product-single',[\App\Http\Controllers\ProductSingleController::class,'productSingle'])->name('product-single');
 });

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductSingleController extends Controller
 {
-    public function productSingle()
+    public function productSingle($id)
     {
-        return view('frontend.product-single');
+        $product = Product::findOrFail($id);
+        return view('frontend.product-single',compact('product'));
     }
 }

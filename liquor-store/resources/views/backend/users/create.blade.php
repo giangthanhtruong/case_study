@@ -21,6 +21,20 @@
                 <p class="text-danger">{{$errors->first('phone') }}</p>
 
             </div>
+            <div class="form-group">
+                <label for="">Tuổi</label>
+                <input type="number" name="age"  class="form-control">
+
+                <p class="text-danger">{{$errors->first('age') }}</p>
+
+            </div>
+            <div class="form-group">
+                <label for="">Mật khẩu</label>
+                <input type="text" name="password"  class="form-control">
+
+                <p class="text-danger">{{$errors->first('password') }}</p>
+
+            </div>
 
 
 

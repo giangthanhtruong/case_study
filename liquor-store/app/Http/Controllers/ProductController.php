@@ -17,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(5);
+
         return view('backend.products.list', compact('products'));
     }
 
@@ -37,7 +38,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AuthRequest $request)
+    public function store(Request $request)
     {
         $product = new Product();
         $product->name = $request->name;
@@ -129,7 +130,7 @@ class ProductController extends Controller
 
     public function showProducts()
     {
-        $products = Product::paginate(12);
+        $products = Product::paginate(8);
         return view('frontend.product',compact('products'));
     }
 

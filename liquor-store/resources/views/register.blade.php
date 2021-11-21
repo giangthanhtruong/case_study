@@ -22,6 +22,7 @@
 <body id="register-body">
 <div id="logreg-forms">
     <form method="post" class="form-register">
+        @csrf
         <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"><strong> Register </strong></h1>
         <div class="social-login">
             <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign up with Facebook</span>
@@ -37,21 +38,45 @@
             <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" name="" class="form-control input_user" value="" placeholder="User name">
+            <input type="text" name="name" class="form-control input_user" value="" placeholder="User name">
         </div>
         <br>
         <div class="input-group mb-3">
             <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-email"></i></span>
             </div>
-            <input type="email" name="" class="form-control input_user" value="" placeholder="User email">
+            <input type="email" name="email" class="form-control input_user" value="" placeholder="User email">
+        </div><br>
+        <div class="input-group mb-3">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-email"></i></span>
+            </div>
+            <input type="number" name="age" class="form-control input_user" value="" placeholder="Your age">
+        </div><br>
+        <div class="input-group mb-3">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-email"></i></span>
+            </div>
+            <input type="address" name="address" class="form-control input_user" value="" placeholder="Your address">
+        </div><br>
+        <div class="input-group mb-3">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-email"></i></span>
+            </div>
+            <input type="file" name="image" class="form-control input_user" value="" placeholder="Your image">
+        </div><br>
+        <div class="input-group mb-3">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-email"></i></span>
+            </div>
+            <input type="text" name="phone" class="form-control input_user" value="" placeholder="Your phone">
         </div>
         <br>
         <div class="input-group mb-2">
             <div class="input-group-append" id="icon-eye">
                 <span class="input-group-text"><i class="fas fa-eye-slash"></i></span>
             </div>
-            <input type="password" name="" class="form-control input_pass" value="" placeholder="password"
+            <input type="password" name="password" class="form-control input_pass" value="" placeholder="password"
                    id="inputPassword">
         </div>
         <br>

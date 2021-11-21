@@ -5,7 +5,7 @@
         <div class="card mt-2" >
             <h4 class="card-header text-white text-center " style="background-color: #0c84ff">Thêm mới sản phẩm</h4>
             <div class="card-body">
-                <form method="post" action="{{route('products.store')}}" enctype="multipart/form-data">
+                <form method="post" action="" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="" class="">Tên sản phẩm</label>

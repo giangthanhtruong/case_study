@@ -16,8 +16,7 @@
                     <div class="col-md-3 d-flex">
                         <div class="product ftco-animate">
                             <div class="img d-flex align-items-center justify-content-center">
-                                <img src="{{asset('storage/'. $product->image)}}" alt="" width="250px" height="350px">
-                            </div>
+                                <a href="{{route('product-single',$product->id)}}"><img src="{{asset('storage/'. $product->image)}}" alt="" width="250px" height="350px"></a>                            </div>
                             <div class="text text-center">
                                 <span class="category">{{$product->company}}</span>
                                 <h2>{{$product->name}}</h2>

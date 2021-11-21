@@ -49,7 +49,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 img img-3 d-flex justify-content-center align-items-center"
-                     style="background-image: url(images/about.jpg);">
+                     style="background-image: url({{asset('images/about.jpg')}});">
                 </div>
                 <div class="col-md-6 wrap-about pl-md-5 ftco-animate py-5">
                     <div class="heading-section">
@@ -78,37 +78,37 @@
             <div class="row">
                 <div class="col-lg-2 col-md-4 ">
                     <div class="sort w-100 text-center ftco-animate">
-                        <div class="img" style="background-image: url(images/kind-1.jpg);"></div>
+                        <div class="img" style="background-image: url({{asset('images/kind-1.jpg')}});"></div>
                         <h3>Brandy</h3>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 ">
                     <div class="sort w-100 text-center ftco-animate">
-                        <div class="img" style="background-image: url(images/kind-2.jpg);"></div>
+                        <div class="img" style="background-image: url({{asset('images/kind-2.jpg')}});"></div>
                         <h3>Gin</h3>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 ">
                     <div class="sort w-100 text-center ftco-animate">
-                        <div class="img" style="background-image: url(images/kind-3.jpg);"></div>
+                        <div class="img" style="background-image: url({{asset('images/kind-3.jpg')}});"></div>
                         <h3>Rum</h3>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 ">
                     <div class="sort w-100 text-center ftco-animate">
-                        <div class="img" style="background-image: url(images/kind-4.jpg);"></div>
+                        <div class="img" style="background-image: url({{asset('images/kind-4.jpg')}});"></div>
                         <h3>Tequila</h3>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 ">
                     <div class="sort w-100 text-center ftco-animate">
-                        <div class="img" style="background-image: url(images/kind-5.jpg);"></div>
+                        <div class="img" style="background-image: url({{asset('images/kind-5.jpg')}});"></div>
                         <h3>Vodka</h3>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 ">
                     <div class="sort w-100 text-center ftco-animate">
-                        <div class="img" style="background-image: url(images/kind-6.jpg);"></div>
+                        <div class="img" style="background-image: url({{asset('images/kind-6.jpg')}});"></div>
                         <h3>Whiskey</h3>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                 <div class="col-md-3 d-flex">
                     <div class="product ftco-animate">
                         <div class="img d-flex align-items-center justify-content-center">
-                            <a href="{{route('product-single')}}"><img src="{{asset('storage/'. $product->image)}}" alt="" width="250px" height="350px">                    </a>
+                            <a href="{{route('product-single',$product->id)}}"><img src="{{asset('storage/'. $product->image)}}" alt="" width="250px" height="350px"></a>
 
                         </div>
                         <div class="text text-center">
@@ -146,14 +146,13 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-4">
-                    <a href="{{route('show.products')}}" class="btn btn-primary d-block">View All Products <span
-                            class="fa fa-long-arrow-right"></span></a>
+                    <a href="{{route('show.products')}}" class="btn btn-primary d-block">View All Products </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="ftco-section testimony-section img" style="background-image: url(images/bg_4.jpg);">
+    <section class="ftco-section testimony-section img" style="background-image: url({{asset('images/bg_4.jpg')}});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row justify-content-center mb-5">
@@ -168,12 +167,12 @@
                         <div class="item">
                             <div class="testimony-wrap py-4">
                                 <div class="icon d-flex align-items-center justify-content-center"><span
-                                        class="fa fa-quote-left"></div>
+                                        class="fa fa-quote-left"></span></div>
                                 <div class="text">
                                     <p class="mb-4">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                                        <div class="user-img" style="background-image: url({{asset('images/person_1.jpg')}})"></div>
                                         <div class="pl-3">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -185,12 +184,12 @@
                         <div class="item">
                             <div class="testimony-wrap py-4">
                                 <div class="icon d-flex align-items-center justify-content-center"><span
-                                        class="fa fa-quote-left"></div>
+                                        class="fa fa-quote-left"></span></div>
                                 <div class="text">
                                     <p class="mb-4">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                                        <div class="user-img" style="background-image: url({{asset('images/person_2.jpg')}})"></div>
                                         <div class="pl-3">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -202,7 +201,7 @@
                         <div class="item">
                             <div class="testimony-wrap py-4">
                                 <div class="icon d-flex align-items-center justify-content-center"><span
-                                        class="fa fa-quote-left"></div>
+                                        class="fa fa-quote-left"></span></div>
                                 <div class="text">
                                     <p class="mb-4">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
@@ -219,12 +218,12 @@
                         <div class="item">
                             <div class="testimony-wrap py-4">
                                 <div class="icon d-flex align-items-center justify-content-center"><span
-                                        class="fa fa-quote-left"></div>
+                                        class="fa fa-quote-left"></span></div>
                                 <div class="text">
                                     <p class="mb-4">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                                        <div class="user-img" style="background-image: url({{asset('images/person_1.jpg')}})"></div>
                                         <div class="pl-3">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -236,12 +235,12 @@
                         <div class="item">
                             <div class="testimony-wrap py-4">
                                 <div class="icon d-flex align-items-center justify-content-center"><span
-                                        class="fa fa-quote-left"></div>
+                                        class="fa fa-quote-left"></span></div>
                                 <div class="text">
                                     <p class="mb-4">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                                        <div class="user-img" style="background-image: url({{asset('images/person_2.jpg')}})"></div>
                                         <div class="pl-3">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -285,7 +284,7 @@
                 <div class="col-lg-6 d-flex align-items-stretch ftco-animate">
                     <div class="blog-entry d-flex">
                         <a href="blog-single.html" class="block-20 img"
-                           style="background-image: url('images/image_2.jpg');">
+                           style="background-image: url('{{asset('images/image_2.jpg')}}');">
                         </a>
                         <div class="text p-4 bg-light">
                             <div class="meta">
@@ -302,7 +301,7 @@
                 <div class="col-lg-6 d-flex align-items-stretch ftco-animate">
                     <div class="blog-entry d-flex">
                         <a href="blog-single.html" class="block-20 img"
-                           style="background-image: url('images/image_3.jpg');">
+                           style="background-image: url('{{asset('images/image_3.jpg')}}');">
                         </a>
                         <div class="text p-4 bg-light">
                             <div class="meta">
@@ -319,7 +318,7 @@
                 <div class="col-lg-6 d-flex align-items-stretch ftco-animate">
                     <div class="blog-entry d-flex">
                         <a href="blog-single.html" class="block-20 img"
-                           style="background-image: url('images/image_4.jpg');">
+                           style="background-image: url('{{asset('images/image_4.jpg')}}');">
                         </a>
                         <div class="text p-4 bg-light">
                             <div class="meta">
