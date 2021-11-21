@@ -11,7 +11,7 @@
             </div>
             <div class="row">
 
-                @foreach($products as $product)
+                @foreach($products as $key=>$product)
 
                     <div class="col-md-3 d-flex">
                         <div class="product ftco-animate">
@@ -23,7 +23,7 @@
                                 <h2>{{$product->name}}</h2>
                                 <span class="price">$ {{$product->price}}</span>
                                 <br>
-                                <a><button class = 'addToCart btn btn-success' data-url = "{{$product->id}}"
+                                <a href="{{route('addToCart',$product->id)}}"><button class = 'addToCart btn btn-success'
                                     >Add to Cart</button></a>
                             </div>
                         </div>

@@ -55,13 +55,7 @@
                    id="inputPassword">
         </div>
         <br>
-        <div class="input-group mb-2">
-            <div class="input-group-append" id="icon-eye">
-                <span class="input-group-text"><i class="fas fa-eye-slash"></i></span>
-            </div>
-            <input type="repeatPassword" name="" class="form-control repeat_pass" value="" placeholder=" Repeat password"
-                   id="repeatPassword">
-        </div>
+
         <br>
 
         <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>

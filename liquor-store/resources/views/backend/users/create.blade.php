@@ -14,21 +14,16 @@
                 <p class="text-danger">{{$errors->first('name')}}</p>
 
             </div>
-
             <div class="form-group">
-                <label for="">Password</label>
-                <input type="password" name="password" class="form-control">
+                <label for="">Số điện thoại</label>
+                <input type="number" name="phone"  class="form-control">
 
-                <p class="text-danger">{{$errors->first('password')}}</p>
+                <p class="text-danger">{{$errors->first('phone') }}</p>
 
             </div>
-            <div class="form-group">
-                <label for="">Ngày Sinh</label>
-                <input type="date" name="age"  class="form-control">
 
-                <p class="text-danger">{{$errors->first('age')}}</p>
 
-            </div>
+
             <div class="form-group">
                 <label for="">Email</label>
                 <input type="email" name="email" class="form-control">
@@ -48,13 +43,6 @@
                 <input type="file" name="image" class="form-control">
 
                 <p class="text-danger">{{$errors->first('image')}}</p>
-
-            </div>
-            <div class="form-group">
-                <label for="">Số điện thoại</label>
-                <input type="number" name="phone"  class="form-control">
-
-                <p class="text-danger">{{$errors->first('phone') }}</p>
 
             </div>
 

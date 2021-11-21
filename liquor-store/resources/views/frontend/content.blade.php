@@ -132,7 +132,8 @@
                 <div class="col-md-3 d-flex">
                     <div class="product ftco-animate">
                         <div class="img d-flex align-items-center justify-content-center">
-                            <img src="{{asset('storage/'. $product->image)}}" alt="" width="250px" height="350px">
+                            <a href="{{route('product-single')}}"><img src="{{asset('storage/'. $product->image)}}" alt="" width="250px" height="350px">                    </a>
+
                         </div>
                         <div class="text text-center">
                             <span class="category">{{$product->company}}</span>
@@ -206,7 +207,7 @@
                                     <p class="mb-4">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+                                        <div class="user-img" style="background-image: url({{asset('images/person_3.jpg')}})"></div>
                                         <div class="pl-3">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>

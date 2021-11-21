@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +38,11 @@ Route::prefix('/admin')->group(function (){
         Route::post('/{id}/update',[ProductController::class,'update'])->name('update');
         Route::post('/delete',[ProductController::class,'delete']);
     });
+    Route::prefix('/orders')->group(function (){
+        Route::get('/',[\App\Http\Controllers\OrderController::class,'showOrder'])->name('orders.list');
+        Route::get('/create',[\App\Http\Controllers\OrderController::class,'create'])->name('orders.create');
+        Route::post('/create',[\App\Http\Controllers\OrderController::class,'store'])->name('orders.store');
+    });
 
 });
 
@@ -48,6 +52,7 @@ Route::get('/login',[\App\Http\Controllers\AuthController::class,'formLogin'])->
 Route::post('login',[\App\Http\Controllers\AuthController::class,'login'])->name('user.login');
 Route::get('logout',[\App\Http\Controllers\AuthController::class,'logout'])->name('user.logout');
 Route::get('/register', [\App\Http\Controllers\AuthController::class,'register'])->name('register');
+Route::get('/',[HomeController::class,'homePage'])->name('home');
 
 Route::prefix('/home')->group(function (){
     Route::get('/',[HomeController::class,'homePage'])->name('home');
@@ -55,6 +60,15 @@ Route::prefix('/home')->group(function (){
     Route::prefix('/cart')->group(function (){
         Route::get('/addToCart/{id}',[CartController::class,'addToCart'])->name('addToCart');
     });
+    Route::prefix('/order')->group(function (){
+        Route::get('/',[\App\Http\Controllers\OrderController::class,'showOrder'])->name('user.order');
+
+
+
+    });
     Route::get('/deleteAll',[HomeController::class,'deleteAll'])->name('home.deleteAll');
-    Route::get('/order',[\App\Http\Controllers\OrderController::class,'showOrder'])->name('user.order');
+
+
+    Route::get('/blog-single',[\App\Http\Controllers\BlogController::class,'blog'])->name('blog');
+    Route::get('/product-single',[\App\Http\Controllers\ProductSingleController::class,'productSingle'])->name('product-single');
 });

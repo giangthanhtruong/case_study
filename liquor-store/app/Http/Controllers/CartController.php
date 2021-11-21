@@ -4,37 +4,72 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function addToCart($id)
+
+    public function index(Request $request){
+        $user = Auth::user()->id;
+        $products = $request->session()->get('cart'.$user);
+        $count = $request->session()->get('count'.$user);
+        if ($products == null) {
+            $products = [];
+            $count = [];
+        }
+        session(['count'=>$count]);
+        session(['cart'=>$products]);
+        return redirect()->route('home');
+    }
+
+    public function addToCart(Request $request, $id)
     {
 
-        $cart = session()->get('carts');
+        $user = Auth::user()->id;
+        $products = $request->session()->get('cart'.$user);
+        $count = $request->session()->get('count'.$user);
         $product = Product::findOrFail($id);
-        if (isset($cart[$id])){
-            $cart[$id]['countItem'] = $cart[$id]['countItem'] + 1;
-        } else {
-            $cart[$id] = [
-                    'name' => $product->name,
-                    'image'=> $product->image,
-                    'countItem'=>1,
-                    'price'=>$product->price,
-                    'description'=>$product->description,
-            ];
 
-        }
-        session()->put('carts',$cart);
-        $cart = session()->get('carts');
-        $totalQuantity = 0;
-        foreach ($cart as $item){
-            $totalQuantity += $item['countItem'];
+        if ($products == null) {
+            $products = [];
+            array_push($products, $product);
+            session(['cart'=>[]]);
+            session(['count'=>[]]);
+            session()->push('cart', $product);
+            session()->push('cart'.$user, $product);
+            session()->push('count', 1);
+            session()->push('count'.$user, 1);
+            return redirect()->back();
         }
 
-        return response()->json([
-        'code' => 200,
-        'carts' => $cart,
-        'cartCount' => count($cart),
-        ], 200);
+        for ($i=0;$i<count($products);$i++){
+            if ($products[$i]==$product){
+                $count[$i]++;
+                session(['count'=>$count]);
+                session(['count'.$user=>$count]);
+                return redirect()->back();
+            }
+        }
+        array_push($products, $product);
+        session()->push('cart', $product);
+        session()->push('cart'.$user, $product);
+        session()->push('count', 1);
+        session()->push('count'.$user, 1);
+        return redirect()->back();
+    }
+
+
+    public function delete(Request $request,$id){
+        $user = Auth::user()->id;
+        $products = $request->session()->get('cart'.$user);
+        $count = $request->session()->get('count'.$user);
+        array_splice($products,$id,1);
+        array_splice($count,$id,1);
+        session(['count'.$user=>$count]);
+        session(['count'=>$count]);
+        session(['cart'.$user=>$products]);
+        session(['cart'=>$products]);
+        return redirect()->back();
+
     }
 }
