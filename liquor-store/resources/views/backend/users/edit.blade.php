@@ -1,7 +1,7 @@
 @extends('backend.core.master')
 @section('content')
     <div class="card mt-2">
-        <h5 class="card-header">Cập nhật thông tin khách hàng</h5>
+        <h3 class="card-header" style=" text-align: center">Cập nhật thông tin khách hàng</h3>
         <div class="card-body">
             <form method="post" action="" enctype="multipart/form-data">
                 @csrf
